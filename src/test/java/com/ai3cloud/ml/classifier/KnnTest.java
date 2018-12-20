@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.ai3cloud.ml.classifier.knn.KNN;
+import com.ai3cloud.ml.classifier.KNN;
 import com.ai3cloud.ml.model.Feature;
 import com.ai3cloud.ml.model.Instance;
 

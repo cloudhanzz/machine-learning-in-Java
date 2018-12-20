@@ -1,4 +1,4 @@
-package com.ai3cloud.ml.classifier.knn;
+package com.ai3cloud.ml.classifier;
 
 import static java.util.Comparator.comparingDouble;
 import static java.util.Map.Entry.comparingByValue;
