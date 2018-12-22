@@ -7,9 +7,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.ai3cloud.ml.classifier.KNN;
-import com.ai3cloud.ml.model.Feature;
-import com.ai3cloud.ml.model.Instance;
+import com.ai3cloud.ml.model.NumericInstance;
 
 /**
  * 
@@ -24,14 +22,14 @@ public class KnnTest {
 		
 		String expected = "B";
 
-		List<Instance> classifiedInstances = new ArrayList<>();
+		List<NumericInstance> classifiedInstances = new ArrayList<>();
 
-		classifiedInstances.add(Instance.classified(new Feature[] { () -> 1.0, () -> 1.1 }, "A"));
-		classifiedInstances.add(Instance.classified(new Feature[] { () -> 1.0, () -> 1.0 }, "A"));
-		classifiedInstances.add(Instance.classified(new Feature[] { () -> 0, () -> 0 }, "B"));
-		classifiedInstances.add(Instance.classified(new Feature[] { () -> 0, () -> 0.1 }, "B"));
+		classifiedInstances.add(new NumericInstance(new double[] { 1.0, 1.1 }, "A"));
+		classifiedInstances.add(new NumericInstance(new double[] { 1.0, 1.0 }, "A"));
+		classifiedInstances.add(new NumericInstance(new double[] { 0, 0 }, "B"));
+		classifiedInstances.add(new NumericInstance(new double[] { 0, 0.1}, "B"));
 
-		Instance newRecord = Instance.unclassified(new Feature[] { () -> 0, () -> 0 });
+		NumericInstance newRecord = new NumericInstance(new double[] { 0, 0 });
 		
 		KNN knn = new KNN(classifiedInstances);
 		String actual = knn.classify(newRecord, 3);
