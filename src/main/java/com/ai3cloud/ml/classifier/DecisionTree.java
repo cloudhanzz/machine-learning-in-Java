@@ -28,6 +28,18 @@ public class DecisionTree<T> {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(DecisionTree.class);
 
+	/**
+	 * Returns the class of the instance classified by the classifier
+	 * 
+	 * @param tree
+	 *            The decision tree built out of the training data and used to
+	 *            classify the new instance
+	 * @param instance
+	 *            The new instance to be classified
+	 * @param labels
+	 *            The name of the features
+	 * @return The class of the instance classified by the classifier
+	 */
 	public String classify(Map<String, Map<T, Object>> tree, GenericInstance<T> instance, List<String> labels) {
 
 		List<T> features = instance.getFeatures();
@@ -55,7 +67,15 @@ public class DecisionTree<T> {
 		return null;
 	}
 
-	// label -> {featValue -> decision; eatValue -> labeled_tree}
+	/**
+	 * Returns the decision tree built out of the training instances
+	 * 
+	 * @param instances
+	 *            The training data
+	 * @param labels
+	 *            The name of the features
+	 * @return The decision tree built out of the training instances
+	 */
 	public Map<String, Map<T, Object>> createTree(List<GenericInstance<T>> instances, List<String> labels) {
 
 		LOGGER.info("Calling createTree with {} features and {} lables", instances.get(0).getFeatures().size(),

@@ -12,6 +12,9 @@ public class InstanceParent {
 
 	private String klass;
 
+	/**
+	 * To satisfy child classes.
+	 */
 	public InstanceParent() {		
 	}
 	

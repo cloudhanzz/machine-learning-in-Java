@@ -1,9 +1,7 @@
 package com.ai3cloud.ml.model;
 
 /**
- * Modeling an instance for system to learn or classify. An instance has a bunch
- * of {@link NumericFeature}s. An instance with no category is to be classified while
- * an instance with category is used to train or test a model.
+ * Modeling an instance whose features are represented by floating point numbers.
  * 
  * @author Jiayun Han
  * @since 1.0.0.0

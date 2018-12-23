@@ -6,8 +6,8 @@ import com.ai3cloud.util.Tool;
 
 /**
  * Modeling an instance for system to learn or classify. An instance has a bunch
- * of {@link NumericFeature}s. An instance with no category is to be classified while
- * an instance with category is used to train or test a model.
+ * of features. An instance with no category is to be classified while an
+ * instance with category is used to train or test a model.
  * 
  * @author Jiayun Han
  * @since 1.0.0.0
@@ -16,10 +16,24 @@ public class GenericInstance<T> extends InstanceParent {
 
 	private final List<T> features;
 
+	/**
+	 * Constructs an unclassified instance
+	 * 
+	 * @param features
+	 *            The features of the instance
+	 */
 	public GenericInstance(List<T> features) {
 		this.features = features;
 	}
 
+	/**
+	 * Constructs a classified instance
+	 * 
+	 * @param features
+	 *            The features of the instance
+	 * @param klass
+	 *            The class of the instance
+	 */
 	public GenericInstance(List<T> features, String klass) {
 		super(klass);
 		this.features = features;
@@ -34,7 +48,17 @@ public class GenericInstance<T> extends InstanceParent {
 	public List<T> getFeatures() {
 		return features;
 	}
-	
+
+	/**
+	 * Returns a new instance copied form this instance with the featured at the
+	 * specified index skipped
+	 * 
+	 * @param index
+	 *            The feature at this index should be skipped when copying is
+	 *            performed
+	 * @return A new instance copied form this instance with the featured at the
+	 *         specified index skipped
+	 */
 	public GenericInstance<T> copyAndSkip(int index) {
 		List<T> features2 = Tool.copyAndSkip(features, index);
 		return new GenericInstance<T>(features2, getKlass());

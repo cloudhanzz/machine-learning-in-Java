@@ -31,7 +31,7 @@ public class DecisionTreeTest {
 	private static final Logger LOGGER = LoggerFactory.getLogger(DecisionTreeTest.class);
 	
 	@Test
-	public void createTree() throws IOException, URISyntaxException {
+	public void createTreeAndTestClassifier() throws IOException, URISyntaxException {
 		
 		List<String> labels = null;
 		List<GenericInstance<String>> instances = new ArrayList<>();		
